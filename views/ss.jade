@@ -1,0 +1,15 @@
+html
+	head
+		title Person Details
+	body
+	if(type == "error")
+		script.
+			var msgStr = !{JSON.stringify(message)}
+			alert(msgStr)
+			window.location.href ="http://localhost:8080/template/create/"
+	else
+		script.
+			var name=!{JSON.stringify(company.name)}
+			var description=!{JSON.stringify(company.description)}
+			alert("New person name:    " +	name	+ "   and description:     "+	description	+"   Added! ")
+			window.location.href ="http://localhost:8080/template"

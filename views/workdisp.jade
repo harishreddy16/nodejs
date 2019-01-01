@@ -1,0 +1,65 @@
+html
+    head
+        title name
+        style.
+            table {
+            font-family: arial, sans-serif;
+            border-collapse: collapse;
+            width: 55%;
+            }
+            td {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 2px;
+            }
+            th {
+            border: 1px solid #dddddd;
+            text-align: center;
+            padding: 7px;
+            background-color: #c4c3e0;
+            }
+            tr:nth-child(even){background-color: #f2f2f2;}
+            button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 14px 20px;
+            margin: 8px 0;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+            width: 27.5%;
+            }
+            button:hover {
+            opacity: 0.8;
+            }
+            .container {
+            padding: 16px;
+            }
+    body
+        h1(font align='center', style='color:green') WORKSHEET LISTING
+         table.table.table(border=5,align="center")
+            thead
+                tr: th NAME
+                    th description
+                    th(colspan=2) UPDATE
+            tbody
+                each worksheetSchema in work
+                  tr  
+                    td=worksheetSchema.name
+                    td=worksheetSchema.description 
+                    td=div
+                        a(href="http://localhost:8080/worksheet/update/"+worksheetSchema._id+"") EDIT
+                    td=div
+                        a(href="http://localhost:8080/worksheet/delete/"+worksheetSchema._id+"") DELETE
+        div
+            center
+                button(type='button' onclick='edit()') ADD NEW WORKSHEET
+                      script.
+                        function edit(){
+                        window.location.href="http://localhost:8080/worksheet/create/"
+                        }
+                button(type='button' onclick='e()') GO TO TEMPLATE
+                      script.
+                        function e(){
+                        window.location.href="http://localhost:8080/template/"
+                        }

@@ -1,0 +1,57 @@
+html
+	head
+		title  UPDATE FORM DATA
+		meta(name='viewport', content='width=device-width, initial-scale=1')
+		style.
+			body {font-family: Arial, Helvetica, sans-serif;}
+			form {border: 3px solid #eff1f7;width: 50%;margin: 0 auto;}
+			input[type=text] {
+			width: 100%;
+			padding: 12px 20px;
+			margin: 8px 0;
+			display: inline-block;
+			border: 1px solid #ccc;
+			box-sizing: border-box;
+			}
+			button {
+			background-color: #0748af;
+			color: white;
+			padding: 14px 20px;
+			margin: 8px 0;
+			border: none;
+			cursor: pointer;
+			width: 27.5%;
+			}
+			button:hover {
+			opacity: 0.8;
+			}
+			.container {
+			padding: 16px;
+			}
+	body
+		h1(font align='center', style='color:blue') UPDATE FORM
+		form(action="/template/updated/#{comp._id}" method="POST")
+			input(type="hidden" name="_method" value="PUT")
+			div
+				label(for="name") 
+					b NAME:
+				br
+				input(name = "name" type="text" value="#{comp.name}")
+			br
+			div
+				label(for="description") 
+					b DESCRIPTION:
+				br
+				input(name="description" type="text" value="#{comp.description}")
+			div
+				center
+					button(type='button' onclick='edit()') CANCEL
+						script.
+							function edit(){
+							window.location.href="http://localhost:8080/template/"
+							}
+					button(type="submit" onclick='myFunction()') UPDATE
+						script.
+							function myFunction() {
+							alert("Updated");
+							}
